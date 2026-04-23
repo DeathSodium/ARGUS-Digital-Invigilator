@@ -8,29 +8,25 @@ ARGUS (Automated Remote Guardian for Ubiquitous Supervision) is an intelligent p
 *   **Face Matching**: Uses **InsightFace** (`buffalo_l`) to match the person in the frame against a registered reference photo with high precision.
 *   **Anti-Spoofing (Blink Detection)**: Utilizes **MediaPipe** Face Mesh to calculate the **Eye Aspect Ratio (EAR)**. It flags a "FAKE/SPOOF" status if the user fails to blink within a specified temporal threshold, preventing the use of static photos.
 
-### 2. Behavioral Monitoring
-*   **Gaze Tracking**: Monitors the iris position relative to the eye corners to detect if the examinee is looking away from the screen (Looking Left/Right).
-*   **Attention Monitoring**: Real-time feedback on "FOCUSED" vs "UNFOCUSED" states.
+### 2. Behavioral Monitoring & Gaze Tracking
+*   **Attention Monitoring**: Monitors the iris position relative to the eye corners to detect if the examinee is looking away from the screen (Looking Left/Right) or maintaining a "FOCUSED" state.
+*   **Head Pose Estimation**: Analyzes head orientation to flag suspicious movements.
 
-### 3. Modular Architecture
-*   **Module 1**: Core proctoring engine with face verification and liveness detection.
-*   **Module 2**: GUI-based classification tool for custom behavior training and recognition.
+### 3. Object Detection (Module 2)
+*   **Restricted Detection**: Module 2 functions as a specialized object detector (e.g., for mobile phones, books, or multiple people in the frame).
+*   **Runtime Deployment**: The specific weights and restricted detection files are added at runtime to maintain security and modularity.
+*   *Note: Early versions of this project utilized YOLOv8 for detection before transitioning to a more customized implementation for specific proctoring requirements.*
 
 ## 🛠️ Technology Stack
 *   **Core Logic**: Python
 *   **Computer Vision**: OpenCV
-*   **Face Analysis**: InsightFace (Sub-module)
-*   **Landmark Detection**: MediaPipe
-*   **Numerical Processing**: NumPy
-*   **GUI**: Tkinter (Module 2)
+*   **Artificial Intelligence**: InsightFace, MediaPipe
+*   **Deep Learning (Legacy)**: YOLOv8 (Explored in early development)
+*   **GUI**: Tkinter
 
 ## 📋 Installation & Usage
 
-### Prerequisites
-*   Python 3.8+
-*   Webcam
-
-### setup
+### Setup
 1. Clone the repository.
 2. Install dependencies:
    ```bash
@@ -44,6 +40,7 @@ ARGUS (Automated Remote Guardian for Ubiquitous Supervision) is an intelligent p
 ## 🛡️ Anti-Cheating Logic
 *   **Liveness Bar**: A visual timer that resets every time a blink is detected.
 *   **ID Match Status**: Prevents impersonation by continuously verifying the user's facial embedding against the registration.
+*   **Environmental Integrity**: Module 2 monitors for restricted objects and unauthorized secondary persons.
 
 ---
-*Developed as an AI Lab Project | Semester 5*
+**Developed by Muhammad Kaif**
