@@ -1,0 +1,18 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDEs
+.idea/
+.vscode/
+
+# Project specific ignores
+Module 2/__pycache__/
+Module 2/.idea/
+
+# Large files
+*.docx
+# If you want to include reports, uncomment the line above. 
+# Usually, binary documents are not recommended for git, but if they are small and part of the project, they might be okay.
+# I'll include them for now unless they are very large.
