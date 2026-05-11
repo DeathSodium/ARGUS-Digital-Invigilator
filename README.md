@@ -43,4 +43,4 @@ ARGUS (Automated Remote Guardian for Ubiquitous Supervision) is an intelligent p
 *   **Environmental Integrity**: Module 2 monitors for restricted objects and unauthorized secondary persons.
 
 ---
-**Developed by Muhammad Kaif**
+**Developed by Team Sodium**
